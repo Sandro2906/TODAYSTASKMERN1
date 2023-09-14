@@ -3,7 +3,7 @@ import NavBar from "./pages/NavBar";
 import TasksPage from "./pages/TasksPage";
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://localhost:4000'
+axios.defaults.baseURL = 'https://todaystaskmern-1-api.vercel.app'
 axios.defaults.credentials = true
 function App() {
   return (
