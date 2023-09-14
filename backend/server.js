@@ -7,11 +7,7 @@ const Tabela = require('./model/TaskTabela')
 const app = express()
 
 app.use(express.json())
-app.use(cors({
-    origin: 'https://todaystaskmern-1-frontend.vercel.app',
-    credentials: true,
-    methods:["GET","POST","DELETE"],
-}))
+app.use(cors())
 
 try{
     mongoose.connect("mongodb+srv://sandroyt29:iU1YyzNlgfxqsxJW@cluster0.6t909ht.mongodb.net/?retryWrites=true&w=majority",{
