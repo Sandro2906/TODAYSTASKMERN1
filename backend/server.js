@@ -8,13 +8,12 @@ const app = express()
 
 app.use(express.json())
 app.use(cors({
-    origin: ['https://todaystaskmern-1-frontend.vercel.app'],
+    origin: 'https://todaystaskmern-1-frontend.vercel.app',
     credentials: true,
-    methods:['POST','GET','DELETE]
 }))
 
 try{
-    mongoose.connect('mongodb+srv://sandroyt29:iU1YyzNlgfxqsxJW@cluster0.6t909ht.mongodb.net/?retryWrites=true&w=majority',{
+    mongoose.connect("mongodb+srv://sandroyt29:iU1YyzNlgfxqsxJW@cluster0.6t909ht.mongodb.net/?retryWrites=true&w=majority",{
         useNewUrlParser: true,
         useUnifiedTopology: true,
         //iU1YyzNlgfxqsxJW
