@@ -8,8 +8,9 @@ const app = express()
 
 app.use(express.json())
 app.use(cors({
-    origin: 'http://localhost:3000',
-    credentials: true
+    origin: ['https://todaystaskmern-1-o030dz9fg-sandroyt29-gmailcom.vercel.app'],
+    credentials: true,
+    methods:['POST','GET','DELETE]
 }))
 
 try{
