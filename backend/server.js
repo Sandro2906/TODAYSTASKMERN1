@@ -25,7 +25,7 @@ catch(err){
     console.log(err)
 }
 
-app.get('/getTasks', async(req,res)=>{
+app.get('/api/getTasks', async(req,res)=>{
     try{
         const data = await Tabela.find({})
         res.status(200).json(data)
@@ -35,7 +35,7 @@ app.get('/getTasks', async(req,res)=>{
     }
 })
 
-app.post('/postTasks',async(req,res)=>{
+app.post('/api/postTasks',async(req,res)=>{
     const {task} = req.body;
 try{
     const table = await Tabela.create({
@@ -48,7 +48,7 @@ try{
 }
 })
 
-app.delete('/deleteTask/:id',async(req,res)=>{
+app.delete('/api/deleteTask/:id',async(req,res)=>{
     const id = req.params.id
 try{
     const newData = await Tabela.findByIdAndRemove(id)
