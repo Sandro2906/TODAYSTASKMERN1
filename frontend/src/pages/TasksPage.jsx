@@ -1,6 +1,6 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { backendUrl } from './config'
+
 
 const TasksPage = () => {
 
@@ -9,8 +9,8 @@ const TasksPage = () => {
 
     const addTaskToList = async()=>{
         try{
-            await axios.post(`${backendUrl}/api/postTasks`, {task})
-            const response = await axios.get(`${backendUrl}/api/getTasks`)
+            await axios.post('https://todaystaskmern-1-api.vercel.app/api/postTasks', {task})
+            const response = await axios.get('https://todaystaskmern-1-api.vercel.app/api/getTasks')
             setItems(response.data)
             setTask('')
         } catch(err){
@@ -21,7 +21,7 @@ const TasksPage = () => {
 
     const deleteTask = async (id) => {
         try {
-            await axios.delete(`${backendUrl}/api/deleteTask/${id}`);
+            await axios.delete('https://todaystaskmern-1-api.vercel.app/api/deleteTask/${id}');
             setItems((prevItems) => prevItems.filter((item) => item._id !== id));
         } catch (err) {
             console.log(err);
@@ -33,7 +33,7 @@ const TasksPage = () => {
     useEffect(() => {
         const fetchNewData = async () => {
             try {
-                const response = await axios.get(`${backendUrl}/api/getTasks`);
+                const response = await axios.get('https://todaystaskmern-1-api.vercel.app/api/getTasks');
                 setItems(response.data);
             } catch (err) {
                 console.log(err);
