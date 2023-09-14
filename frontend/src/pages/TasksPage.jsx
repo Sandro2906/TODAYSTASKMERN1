@@ -8,8 +8,8 @@ const TasksPage = () => {
 
     const addTaskToList = async()=>{
         try{
-            await axios.post('/postTasks', {task})
-            const response = await axios.get('/getTasks')
+            await axios.post('/api/postTasks', {task})
+            const response = await axios.get('/api/getTasks')
             setItems(response.data)
             setTask('')
         } catch(err){
@@ -20,7 +20,7 @@ const TasksPage = () => {
 
     const deleteTask = async (id) => {
         try {
-            await axios.delete(`/deleteTask/${id}`);
+            await axios.delete(`/api/deleteTask/${id}`);
             setItems((prevItems) => prevItems.filter((item) => item._id !== id));
         } catch (err) {
             console.log(err);
@@ -32,7 +32,7 @@ const TasksPage = () => {
     useEffect(() => {
         const fetchNewData = async () => {
             try {
-                const response = await axios.get('/getTasks');
+                const response = await axios.get('/api/getTasks');
                 setItems(response.data);
             } catch (err) {
                 console.log(err);
